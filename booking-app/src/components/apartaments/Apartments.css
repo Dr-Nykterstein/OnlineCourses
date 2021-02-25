@@ -1,0 +1,9 @@
+.apartments-container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background: #fff;
+}
+
+.apartments-container h1 {
+  text-align: center;
+}

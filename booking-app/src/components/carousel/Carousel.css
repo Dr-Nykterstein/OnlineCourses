@@ -1,0 +1,109 @@
+.carousel {
+  text-align: center;
+}
+ 
+.carousel-logo {
+  height: 40vmin;
+}
+ 
+.carousel-header {
+  background-color:magenta;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+ 
+.carousel-link {
+  color:maroon;
+}
+
+.carousel-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+ 
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides {
+  position: relative;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index:1;
+}
+
+.slides .slick-prev {
+  left: 5%;
+}
+
+.slides .slick-next {
+  right: 5%;
+}
+
+.img-home {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+  
+.carousel-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+}
+  
+.carousel-container > h1 {
+    color: #fff;
+    font-size: 100px;
+    margin-top: -150px;
+    position: absolute;
+}
+  
+.carousel-container > p {
+    margin-top: 25px;
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    position: absolute;
+}
+  
+
+@media screen and (max-width: 960px) {
+    .carousel-container > h1 {
+      font-size: 70px;
+      margin-top: -200px;
+    }
+}
+  
+@media screen and (max-width: 768px) {
+    .carousel-container > h1 {
+      font-size: 50px;
+      margin-top: -150px;
+    }
+  
+    .carousel-container > p {
+      font-size: 30px;
+    }
+}
