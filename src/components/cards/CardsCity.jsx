@@ -12,7 +12,7 @@ function CardsCity() {
         <div className='cards-wrapper'>
           <ul className='cards-items'>
             <CardItem class='fixed-size-block-two'
-              src='https://lh3.googleusercontent.com/proxy/usgKiEmtMbKMqAjmY9OBxriE-s9aq_wrYMXzODe8o-T_pagTxJt9U6A6AADyV2ejF64JnElyj9O3ODyOmsmq4l5EpQcOhJKS3J7EJTZTNPMBHH_XbYJTVFMhlyUsqPFH_jpAJyoUyv3Mgi4rTrOSE5rlEuQ'
+              src='https://insightintoukraine.com/wp-content/uploads/2019/11/Bukovel-Ski-Resort.jpg'
               label='Bukovel'
               path=''
             />
