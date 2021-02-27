@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Carousel from '../carousel/Carousel';
-import ApartmentsExp from '../apartaments/Apartments';
+import ApartmentsExp from './Apartments';
 import Footer from '../footer/Footer';
 
 import '../../App.css';

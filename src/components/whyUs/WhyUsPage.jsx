@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Carousel from '../carousel/Carousel';
-import WhyUsExp from '../about/WhyUs';
+import WhyUsExp from '../whyUs/WhyUs';
 import Footer from '../footer/Footer';
 
 import '../../App.css';

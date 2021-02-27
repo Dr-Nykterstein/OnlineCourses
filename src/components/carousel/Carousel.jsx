@@ -64,8 +64,8 @@ function Carousel(props) {
   return (
     <div className="carousel">
       <Slider {...settings}>
-        {photos.map((photos) => (
-          <div className="slides" key={photos.key}>
+        {photos.map((photos, key) => (
+          <div className="slides" key={key}>
             <div className="carousel-container">
               <img
                 className="carousel-img"

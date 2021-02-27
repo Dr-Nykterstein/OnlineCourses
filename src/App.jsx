@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/navabar/Navbar';
-import Home from './components/Pages/Home';
-import Apartments from './components/Pages/Apartments';
-import WhyUs from './components/Pages/WhyUs';
-import SignUp from './components/Pages/SignUp';
-import SignIn from './components/Pages/SignIn';
+import Home from './components/home/HomePage';
+import Apartments from './components/apartaments/ApartmentsPage';
+import WhyUs from './components/whyUs/WhyUsPage';
+import SignUp from './components/signUp/SignUpPage';
+import SignIn from './components/signIn/SignInPage';
 
 import './App.css';
 

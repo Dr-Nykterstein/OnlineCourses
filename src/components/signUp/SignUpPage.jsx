@@ -1,9 +1,15 @@
 import React from 'react';
 
+import SignUpForm from './SignUp';
+
 import '../../App.css';
 
 function SignUp() {
-  return <h1>Sign Up</h1>;
+  return (
+    <>
+      <SignUpForm />
+    </>
+  );
 }
 
 export default SignUp;

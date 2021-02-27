@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+  }
+  
+.signin-main {
+    min-height: 88.2vh;
+    display: flex;
+    font-weight: 400;
+    font-family: sans-serif;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://www.tripoffbeat.com/img/resorts/anantya-resort/900x500/anantya-resort-kanyakumari-tamilnadu-resort-1.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+  
+.signin-main, html, .App, #root, .signin-outer {
+    width: 100%;
+    height: 100%;
+}
+ 
+.signin-outer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+  
+.signin-inner {
+    width: 450px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+}
+  
+.signin-outer .form-control:focus {
+    border-color:black;
+    box-shadow: none;
+}
+  
+.signin-outer h3 {
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+  
+.signin-form-group input {
+      width: 100%;
+      height: 35px;
+      padding-left: 15px;
+      margin-bottom: 20px;
+}
+  
+.signin-form-group label {
+    font-weight: 100;
+}
+  
+.signin-submit {
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+      color: black;
+      padding: 8px 0px;
+      width: 100%;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 13px;
+      background-color: #ffe600;
+}
+  
+.signin-submit:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+  
+.not-account,
+.not-account a {
+    text-align: right;
+    font-size: 13px;
+    padding-top: 10px;
+    color: #7f7d7d;
+    margin: 0;
+}
+  
+.not-account a {
+    color: #167bff;
+}
+  
+@media screen and (max-width: 767px) {
+    .signin-inner {
+      width: 350px;
+    }
+  
+    .signin-main {
+      min-height: 110vh;
+    }
+}
