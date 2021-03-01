@@ -8,6 +8,8 @@ import WhyUs from './components/Pages/WhyUs';
 import SignUp from './components/Pages/SignUp';
 import SignIn from './components/Pages/SignIn';
 
+//comment
+
 function App() {
   return (
     <>
@@ -24,5 +26,4 @@ function App() {
     </>
   );
 }
-
 export default App;
