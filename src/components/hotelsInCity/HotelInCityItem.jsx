@@ -13,14 +13,12 @@ const HotelInCityItem = (props) => {
             console.log(error)  
         }),[setAppState]
         )
-        // <div className='hotel-info'>
-        //     <h1>{props.name}</h1>
-        //     {appState.map((item,key) => {
+            //     {appState.map((item,key) => {
                
         //         // <h3>{item.title}</h3>
         //     })
         //     }
-        // </div>
+        
     return (
         <>
             <li className='hotels-item-container'>
@@ -31,6 +29,10 @@ const HotelInCityItem = (props) => {
                     src=''
                     />
                 </figure>
+                <div className='hotel-info'>
+                    <h1>{props.name}</h1>
+                </div>
+        
             </li>
         </>
     )
