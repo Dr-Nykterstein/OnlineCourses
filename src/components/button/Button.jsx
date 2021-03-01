@@ -17,13 +17,13 @@ export const Button = ({
     ? buttonStyle
     : STYLES[0];
 
-  const checkButtonSizeAleksandr = SIZES.includes(buttonSize)
+  const checkButtonSize = SIZES.includes(buttonSize)
     ? buttonSize
     : SIZES[0];
 
   return (
     <button
-      className={`btn ${checkButtonStyle} ${checkButtonSizeAleksandr}`}
+      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
       onClick={onClick}
       type={type}
     >
