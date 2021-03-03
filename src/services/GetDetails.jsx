@@ -1,4 +1,4 @@
-import axios from '../../services/AxiosConfig'
+import axios from './AxiosConfig'
 
 ////id - id of Hotel 
 ////checkOut - date of leaving from the Hotel Ex: 01-01-2021

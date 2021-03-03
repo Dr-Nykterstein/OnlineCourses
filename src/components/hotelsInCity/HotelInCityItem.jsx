@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 
 import GetHotelImg from './GetHotelImages'
 
-import GetDetails from '../getFromApi/GetDetails'
+import GetDetails from '../../services/GetDetails'
 
 const HotelInCityItem = (props) => {
     const [appState, setAppState] = useState([{}])

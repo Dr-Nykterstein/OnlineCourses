@@ -1,4 +1,4 @@
-import GetHotelsPhotoById from '../getFromApi/GetHotelsPhotoById'
+import GetHotelsPhotoById from '../../services/GetHotelsPhotoById'
 
 const GetHotelImg = ({id}) => {
 

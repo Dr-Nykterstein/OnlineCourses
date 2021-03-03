@@ -1,4 +1,4 @@
-import axios from '../../services/AxiosConfig'
+import axios from './AxiosConfig'
 
 ////ARI url 
 ////id - of Hotel

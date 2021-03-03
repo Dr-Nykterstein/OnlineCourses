@@ -1,6 +1,6 @@
 import React,{ useEffect, useState }  from 'react'
 
-import SearchByKeyWord from '../getFromApi/SearchByKeyWord'
+import SearchByKeyWord from '../../services/SearchByKeyWord'
 
 import HotelInCityItem from './HotelInCityItem'
 
