@@ -3,9 +3,6 @@
   padding-bottom: 2rem;
   background: #fff;
 }
-
-
-
 .hotels-conteiner{
   flex-flow: column;
   align-items: center;
@@ -13,24 +10,19 @@
   width: 90%;
   margin: 0 auto;
 }
-
 .hotels-wrapper{
   position: relative;
   display:flex;
   flex-wrap: wrap;
 }
-
 .hotels-items-container{
   width: 100%;
   justify-content: 10px;
 }
-
 .hotels-item-pic-wrap{
   width: 100px;  
   height: 200px;
 }
-
-
 .hotels-item-container{
   align-items: left;
   display: flex;

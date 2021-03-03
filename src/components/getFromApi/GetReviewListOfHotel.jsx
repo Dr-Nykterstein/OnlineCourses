@@ -1,8 +1,7 @@
-import axios from './AxiosConfig'
+import axios from './services/AxiosConfig'
 
 ////id - of object 
-//// loc -location 
-const GetReviewsListOfHotel = (args) =>{
+const GetReviewsListOfHotel = ({id}) =>{
     return axios.get('https://hotels4.p.rapidapi.com/reviews/list',{
            params: {
                 id: args

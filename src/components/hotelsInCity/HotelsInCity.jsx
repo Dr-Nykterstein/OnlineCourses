@@ -6,12 +6,13 @@ import HotelInCityItem from './HotelInCityItem'
 
 import './HotelsInCity.css'
 
-
 function HotelsInCityExp(props) {
+
   const [appState, setAppState] = useState([{}])
   
+  
   useEffect(()=>
-  SearchByKeyWord(props.name)
+  SearchByKeyWord({query: props.name})
   .then(res => {
     setAppState(res.data.suggestions[1].entities);
   })
@@ -19,8 +20,7 @@ function HotelsInCityExp(props) {
     console.log(error)  
   }),[setAppState]
   )
-  
-
+  console.log(appState);
   return (
     <div className="hotels">
       <h1>Hotels</h1>
@@ -34,7 +34,7 @@ function HotelsInCityExp(props) {
         </div>
       </div>
     </div>
-    );
+  );
 }
 
 export default HotelsInCityExp;
