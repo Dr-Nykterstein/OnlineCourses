@@ -4,7 +4,7 @@ import axios from './services/AxiosConfig'
 const GetReviewsListOfHotel = ({id}) =>{
     return axios.get('https://hotels4.p.rapidapi.com/reviews/list',{
            params: {
-                id: args
+                id: id
            }
     })
 }
