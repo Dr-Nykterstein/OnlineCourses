@@ -1,4 +1,4 @@
-import axios from '../services/AxiosConfig'
+import axios from './services/AxiosConfig'
 
 ////query - find by city/region/counry 
 const SearchByKeyWord = ({query = null, loc = null}) =>{
