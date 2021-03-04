@@ -5,11 +5,11 @@ function CardItem(props) {
   return (
     <>
       <li className={`cards-item ${props.class}`}>
-        <Link className='cards-item-link' to={props.path}>
+        <Link className='cards-item-link' to={{pathname:props.path, state: {name: props.label}}}>
           <figure className='cards-item-pic-wrap' data-category={props.label}>
             <img
               className='cards-item-img'
-              alt='Image'
+              alt={`Img`}
               src={props.src}
             />
           </figure>
@@ -18,6 +18,7 @@ function CardItem(props) {
           </div>
         </Link>
       </li>
+      
     </>
   );
 }
