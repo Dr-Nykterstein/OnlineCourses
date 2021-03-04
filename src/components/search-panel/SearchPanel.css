@@ -1,0 +1,141 @@
+.searchPanel {
+    border: 5px solid #ffe600;
+    border-radius: 50px 50px 50px 50px;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    width: 400px;
+    outline: none;
+}
+
+.searchPanelform {
+    display: block;
+    margin: auto;
+    display: inline-flex;
+    flex-direction: row;
+    margin-left: 100px;
+    margin-bottom: 15px;
+}
+
+.firstCol {
+    display: block;
+    margin: auto;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.secondCol {
+    display: block;
+    margin: auto;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 426px) {
+    .searchPanel {
+        width: 200px;
+        font-size: 16px;
+        margin-left: -10px;
+    }
+    .searchPanelform {
+        margin-left: 10px;
+    }
+    .separator {
+        margin-top: 10px;
+    }
+    .picker {
+        margin-left: -16px;
+        font-size: 5px;
+    }
+    .firstCol {
+        flex-direction: column;
+        margin-left: 10px;
+    }
+    .secondCol {
+        flex-direction: column;
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
+    .searchButton {
+        width: 50px;
+        height: 25px;
+    }
+    .upper h1 {
+        margin: 0px 0px;
+        font-size: 15px;
+    }
+    .peoplePicker {
+        margin-left: -10px;
+    }
+    .button {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.upper {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.peoplePicker {
+    margin-left: 15px;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.stepper {
+    margin-left: 40px;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.button {
+    margin: 5px 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #ffe600;
+    transition: all 0.3s ease-out;
+}
+
+.button:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+}
+
+.upper h1 {
+    margin: 8px 10px;
+    font-size: 18px;
+}
+
+.separator {
+    margin-top: -25px;
+}
+
+.searchButton {
+    border-radius: 50px 50px 50px 50px;
+    margin-left: 10px;
+    margin-top: 25px;
+    width: 200px;
+    height: 50px;
+    border: 5px solid #ffe600;
+    background-color: #ffe600;
+    font-size: 18px;
+    outline: none;
+}
+
+.searchButton:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+}
