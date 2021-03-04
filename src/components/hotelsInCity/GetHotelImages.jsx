@@ -20,4 +20,3 @@ const GetHotelImg = ({id}) => {
 }
 
 export default GetHotelImg;
-;
