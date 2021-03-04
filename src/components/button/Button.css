@@ -35,8 +35,7 @@
 }
 
 .btn-large:hover,
-.btn-medium:hover,
-.btn-small:hover {
+.btn-medium:hover {
     transition: all 0.3s ease-out;
     background: #fff;
     color: #242424;
