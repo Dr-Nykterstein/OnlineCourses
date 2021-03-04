@@ -11,17 +11,19 @@ function HotelsInCityExp(props) {
   const [appState, setAppState] = useState([{}])
   
   
-  useEffect(()=>
-  SearchByKeyWord({query: props.name})
-  .then(res => {
-    setAppState(res.data.suggestions[1].entities);
-  })
-  .catch(error => {
-    console.log(error)  
-  }),[setAppState]
-  )
-  
-  console.log(appState);
+  useEffect(()=>{
+  const runEffect  = async () => {
+    await SearchByKeyWord({query: props.name})
+    .then(res => {
+      setAppState(res.data.suggestions[1].entities);
+    })
+    .catch(error => {
+      console.log(error)  
+    })  
+  }
+  runEffect();
+},[])
+
   return (
     <div className="hotels">
       <h1>Hotels</h1>

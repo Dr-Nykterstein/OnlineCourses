@@ -1,8 +1,6 @@
-import React, { useEffect, useState} from 'react'
+import React from 'react'
 
-const HotelInCityItem = (props) => {
-    const [appState, setAppState] = useState([{}])
-        
+const HotelInCityItem = (props) => {   
     return (
         <>
             <li className='hotels-item-container'>
