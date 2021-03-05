@@ -1,9 +1,17 @@
 .whyus-container {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    background: #fff;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: #fff;
 }
 
-.whyus-container h1 {
-  text-align: center;
+.whyus-container h1, h2 {
+text-align: center;
+}
+
+.whyus-container p {
+margin-top: 8px;
+font-size: 18px;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+'Lucida Sans', Arial, sans-serif;
+text-align: center;
 }

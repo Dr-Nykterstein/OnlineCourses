@@ -1,39 +1,47 @@
-import React,{ useEffect, useState }  from 'react'
+import React, { useEffect, useState } from 'react'
 
 import SearchByKeyWord from '../../services/SearchByKeyWord'
 
-import HotelInCityItem from './HotelInCityItem'
+import CardHorizontal from '../cards/CardHorizontal';
 
-import './HotelsInCity.css'
+import '../cards/Cards.css';
+import '../cards/CardsHorizontal.css';
 
 function HotelsInCityExp(props) {
 
   const [appState, setAppState] = useState([{}])
-  
-  
-  useEffect(()=>{
-  const runEffect  = async () => {
-    await SearchByKeyWord({query: props.name})
-    .then(res => {
-      setAppState(res.data.suggestions[1].entities);
-    })
-    .catch(error => {
-      console.log(error)  
-    })  
-  }
-  runEffect();
-},[])
+
+
+  useEffect(() => {
+    const runEffect = async () => {
+      await SearchByKeyWord({ query: props.name })
+        .then(res => {
+          setAppState(res.data.suggestions[1].entities);
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+    runEffect();
+  }, [])
 
   return (
-    <div className="hotels">
-      <h1>Hotels</h1>
-      <div className="hotels-conteiner">
-        <div className="hotels-wrapper">
-          <ul className="hotels-items-container">
-            {appState.map((item,key) => (
-              <HotelInCityItem key={key} caption={item.caption} id={item.destinationId} name={item.name} geoId={item.geoId}  latitude={item.latitude} longitude={item.longitude} />
-            ))}
-          </ul>
+    <div className='cards'>
+      <div className='cards-container'>
+        <div className='cards-wrapper'>
+          {appState.map((item, key) => (
+            <ul className='cards-items' key={key}>
+              <CardHorizontal class='fixed-size'
+                src='https://insightintoukraine.com/wp-content/uploads/2019/11/Bukovel-Ski-Resort.jpg'
+                title={item.name}
+                city='Lviv,Lviv Oblast,Ukraine'
+                description="Featuring free Wi-Fi and a sauna, Villa Stanislavsky Hotel is located 20 minutes' walk from Mickiewicz Square in Lviv city. Rooms are fitted with air conditioning."
+                starRating='5'
+                rating='9.3'
+                path=''
+              />
+            </ul>
+          ))}
         </div>
       </div>
     </div>
