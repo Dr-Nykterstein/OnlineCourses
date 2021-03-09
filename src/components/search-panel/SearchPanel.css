@@ -3,10 +3,11 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px;
     font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 40px;
-    width: 400px;
+    width: 500px;
+    height: 50px;
     outline: none;
 }
 
@@ -15,63 +16,32 @@
     margin: auto;
     display: inline-flex;
     flex-direction: row;
-    margin-left: 100px;
+    margin-left: 90px;
     margin-bottom: 15px;
-}
-
-.firstCol {
-    display: block;
-    margin: auto;
-    display: inline-flex;
-    flex-direction: row;
-}
-
-.secondCol {
-    display: block;
-    margin: auto;
-    display: inline-flex;
-    flex-direction: row;
 }
 
 @media only screen and (max-width: 426px) {
     .searchPanel {
-        width: 200px;
+        width: 300px;
         font-size: 16px;
-        margin-left: -10px;
+        margin: 10px 50px;
     }
     .searchPanelform {
-        margin-left: 10px;
-    }
-    .separator {
-        margin-top: 10px;
-    }
-    .picker {
-        margin-left: -16px;
-        font-size: 5px;
-    }
-    .firstCol {
         flex-direction: column;
         margin-left: 10px;
+        margin-bottom: 20px;
     }
-    .secondCol {
-        flex-direction: column;
-        margin-right: 15px;
-        margin-bottom: 10px;
-    }
-    .searchButton {
-        width: 50px;
-        height: 25px;
-    }
-    .upper h1 {
-        margin: 0px 0px;
-        font-size: 15px;
+    .upper {
+        margin-left: 30px;
     }
     .peoplePicker {
-        margin-left: -10px;
+        margin: 30px 20px;
     }
-    .button {
-        width: 10px;
-        height: 10px;
+    .searchButton {
+        margin: 10px 10px;
+    }
+    .buttondiv {
+        margin: 0px 70px;
     }
 }
 
@@ -81,7 +51,8 @@
 }
 
 .peoplePicker {
-    margin-left: 15px;
+    margin-bottom: 5px;
+    margin-left: 30px;
     display: inline-flex;
     flex-direction: row;
 }
@@ -115,6 +86,7 @@
 .upper h1 {
     margin: 8px 10px;
     font-size: 18px;
+    text-align: left;
 }
 
 .separator {
@@ -123,19 +95,30 @@
 
 .searchButton {
     border-radius: 50px 50px 50px 50px;
-    margin-left: 10px;
-    margin-top: 25px;
+    margin-left: 20px;
+    margin-top: 35px;
     width: 200px;
     height: 50px;
-    border: 5px solid #ffe600;
+    border: 0px;
     background-color: #ffe600;
     font-size: 18px;
     outline: none;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.searchButton:disabled {
+    cursor: not-allowed;
 }
 
 .searchButton:hover {
-    transition: all 0.3s ease-out;
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
+    background: #000;
+    color: #fff;
+}
+
+.datePickerdiv {
+    display: block;
+    margin: auto;
+    display: inline-flex;
+    flex-direction: column;
 }
