@@ -1,0 +1,17 @@
+.sign-in-page {
+  background: url(https://www.tripoffbeat.com/img/resorts/anantya-resort/900x500/anantya-resort-kanyakumari-tamilnadu-resort-1.jpg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-width: 320px;
+
+
+  &__form-text {
+    font-size: 14px;
+    text-align: right;
+  }
+}
