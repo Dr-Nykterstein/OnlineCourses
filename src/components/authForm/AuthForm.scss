@@ -1,0 +1,43 @@
+.auth-form {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px 40px;
+  max-width: 450px;
+  width: 100%;
+
+  &__title {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__submit-button {
+    width: 100%;
+    display: block;
+    padding: 8px 20px;
+    border-radius: 4px;
+    border: 1px solid grey;
+    outline: none;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all .3s ease;
+    background: #ffe600;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+
+  &__footer {
+
+  }
+}

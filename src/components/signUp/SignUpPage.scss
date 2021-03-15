@@ -1,0 +1,14 @@
+.sign-up-page {
+  background-image: url(https://y8m8k3m5.stackpathcdn.com/wp-content/uploads/2020/03/Main-pool-and-beach-at-Atmosphere-Resorts-Spa.jpg);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-width: 320px;
+
+  &__form-text {
+    font-size: 14px;
+    text-align: right;
+  }
+}
