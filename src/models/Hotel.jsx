@@ -1,9 +1,3 @@
-import { useEffect, useState } from 'react'
-
-import GetHotelsPhotoById from '../services/GetHotelsPhotoById'
-import SearchByKeyWord from '../services/SearchByKeyWord'
-import GetDetails from '../services/GetDetails'
-
 class HotelModel {
   constructor(name,latitude,longitude,location,description,starRating,rating,picture) {
     this.name = name;
