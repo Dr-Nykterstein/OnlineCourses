@@ -14,7 +14,7 @@ function CardHorizontal(props) {
             <figure className='cards-horizontal-pic-wrap' data-category={props.label}>
               <img
                 className='cards-horizontal-img'
-                alt='Image'
+                alt='Img'
                 src={props.src}
               />
             </figure>
