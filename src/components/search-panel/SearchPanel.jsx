@@ -9,8 +9,10 @@ const Styles = styled.div`
  .react-datepicker-wrapper,
  .react-datepicker__input-container,
  .react-datepicker__input-container input {
-   width: 70px;
+   width: 90px;
    height: 50px;
+   text-align: center;
+   font-family: 'PT Sans', sans-serif;
    border-radius: 50px 50px 50px 50px;
    margin-left: 5px;
    margin-top: 7px;
@@ -20,10 +22,8 @@ const Styles = styled.div`
     .react-datepicker-wrapper,
     .react-datepicker__input-container,
     .react-datepicker__input-container input {
-        width: 75px;
-        height: 40px;
-        margin-left: 3px;
-        margin-top: -8px;
+        margin: 5px 35px;
+        width: 180px;
     }
 }
 `;
@@ -121,7 +121,6 @@ class PeoplePicker extends Component {
 
     render() {
         return (
-            <div>
                 
                 <div className='peoplePicker' >
                     <ul className='upper'>
@@ -147,7 +146,6 @@ class PeoplePicker extends Component {
                         </div>
                     </ul>
                 </div>
-            </div>
         );
     }
 }
@@ -155,16 +153,14 @@ class PeoplePicker extends Component {
 function SearchPanel(props) {
     return (
         <div className='searchPanelform'>
-            <div className='firstCol'>
                 <Search placeholder='Where are you going?' />
                 <Styles>
                     <TableDatePicker />
                 </Styles>
-            </div>
-            <div className='secondCol'>
                 <PeoplePicker />
+                <div className='buttondiv'>
                 <button className='searchButton'>Search</button>
-            </div>
+                </div>
         </div>
     );
 }
