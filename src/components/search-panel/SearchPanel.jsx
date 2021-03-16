@@ -32,7 +32,7 @@ const Styles = styled.div`
 function Search(props) {
     return (<div>
         <input placeholder={props.placeholder}
-            className='searchPanel' />
+            className='searchPanel'/>
     </div>
     );
 };
@@ -151,6 +151,7 @@ class PeoplePicker extends Component {
 }
 
 function SearchPanel(props) {
+    console.log(props.name)
     return (
         <div className='searchPanelform'>
                 <Search placeholder='Where are you going?' />
@@ -159,7 +160,7 @@ function SearchPanel(props) {
                 </Styles>
                 <PeoplePicker />
                 <div className='buttondiv'>
-                <button className='searchButton'>Search</button>
+                <button className='searchButton' onClick="">Search</button>
                 </div>
         </div>
     );

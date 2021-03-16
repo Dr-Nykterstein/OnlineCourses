@@ -51,6 +51,7 @@
 }
 
 .peoplePicker {
+    margin-top: 15px;
     margin-bottom: 5px;
     margin-left: 30px;
     display: inline-flex;
