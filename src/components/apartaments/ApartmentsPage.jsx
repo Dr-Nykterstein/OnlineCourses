@@ -12,31 +12,36 @@ import { useEffect, useState } from 'react'
 
 
 function Apartments() {
+
   const [dataFromPanel, setdataFromPanel] = useState()
+
   const parentFunction = (data_from_child) => {
-     setdataFromPanel({ ...data_from_child });
+    setdataFromPanel({ data_from_child });
   }
+
   const name = useLocation()
 
   if (name.state !== undefined) {
     return (
       <>
         <Carousel title="Apartments" />
-        <SearchPanel name={name.state.name} />
-        <ApartmentsExp name={name.state.name} />
+        <SearchPanel name={name.state.name} functionCallFromParent={parentFunction.bind(this)} />
+        <ApartmentsExp name={name.state.name} valueFromParent={dataFromPanel} />
         <Footer />
       </>
     );
   } else {
+    console.log(dataFromPanel)
     return (
       <>
         <Carousel title="Apartments" />
-        <SearchPanel />
-        <ApartmentsExp />
+        <SearchPanel functionCallFromParent={parentFunction.bind(this)} />
+        <ApartmentsExp  valueFromParent={dataFromPanel}/>
         <Footer />
       </>
     );
   }
+
 }
 
 export default Apartments;
