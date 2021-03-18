@@ -27,14 +27,14 @@ const Styles = styled.div`
 }
 `;
 
-let res;
+let name;
 let start;
 let end;
 let child;
 let adult;
 let suit;
 function getValueFromSearch(city) {
-    res = city
+    name = city
 }
 
 function Search(props) {
@@ -194,16 +194,22 @@ class PeoplePicker extends Component {
 }
 
 function convertDate(start) {
-    let stDay = start.getDate()
-    let stMon = start.getMonth() + 1
-    if (start.getMonth() + 1 < 10) {
-        stMon = '0' + parseInt(start.getMonth() + 1)
-
+    if(RegExp(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/).test(start)){
+      return start
+    } else {
+        if (start !== undefined) {
+            let stDay = start.getDate()
+            let stMon = start.getMonth() + 1
+            if (start.getMonth() + 1 < 10) {
+                stMon = '0' + parseInt(start.getMonth() + 1)
+    
+            }
+            if (start.getDate() < 10) {
+                stDay = '0' + start.getDate();
+            }
+            return (start.getFullYear() + "-" + stMon + "-" + stDay);
+        }
     }
-    if (start.getDate() < 10) {
-        stDay = '0' + start.getDate();
-    }
-    return (start.getFullYear() + "-" + stMon + "-" + stDay);
 }
 
 function SearchPanel(props) {
@@ -217,7 +223,7 @@ function SearchPanel(props) {
             end = convertDate(end)
         }
         console.log(child)
-        props.functionCallFromParent({res, start, end, child, adult, suit});
+        props.functionCallFromParent({ name, start, end, child, adult, suit });
     }
     return (
         <div className='searchPanelform'>

@@ -31,7 +31,6 @@ function Apartments() {
       </>
     );
   } else {
-    console.log(dataFromPanel)
     return (
       <>
         <Carousel title="Apartments" />

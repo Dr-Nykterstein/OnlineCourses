@@ -10,12 +10,29 @@ import './LoaderIco.css'
 import hotelsService from '../../services/hotelsService'
 
 function ApartmentsExp(props) {
+  const [catchProps, setCatchProps] = useState({
+    name: undefined,
+    start: undefined,
+    end: undefined,
+    adult: undefined,
+    child: undefined
+  });
+  const [isSearchSuccesful, setIsSearchSuccesful] = useState(true);
   const [hotelsList, setHotelsList] = useState([]);
   const [hotel, setHotel] = useState();
   const [hotelsBaseInfo, setHotelsBaseInfo] = useState([]);
   const [counter, setCounter] = useState(-1);
   useEffect(() => {
-    hotelsService.searchHotelByLocation({ query: props.name })
+    if (props.valueFromParent !== undefined) {
+      setCatchProps(props.valueFromParent.data_from_child)
+    } else {
+      setCatchProps(props)
+    }
+  }, [props])
+  console.log(catchProps)
+  useEffect(() => {
+    console.log(catchProps.name)
+    hotelsService.searchHotelByLocation({ query: catchProps.name })
       .then(({ data }) => {
         setHotelsBaseInfo(data.data.suggestions[1].entities);
         setCounter(counter + 1);
@@ -24,11 +41,18 @@ function ApartmentsExp(props) {
         console.error(error);
         Promise.resolve({});
       })
-  }, [])
+  }, [catchProps])
 
   useEffect(() => {
     if (hotelsBaseInfo[counter] !== undefined) {
-      hotelsService.getHotelDetails({ id: hotelsBaseInfo[counter].destinationId })
+      setIsSearchSuccesful(true);
+      hotelsService.getHotelDetails({
+        id: hotelsBaseInfo[counter].destinationId,
+        checkIn: catchProps.start,
+        checkOut: catchProps.end,
+        adults1: catchProps.adult,
+        child1: catchProps.child
+      })
         .then(({ data }) => {
           const newHotel = {
             name: hotelsBaseInfo[counter].name,
@@ -41,6 +65,7 @@ function ApartmentsExp(props) {
         })
         .catch((error) => {
           console.error(error);
+          setIsSearchSuccesful(false);
           Promise.resolve({});
         })
     }
@@ -50,10 +75,13 @@ function ApartmentsExp(props) {
     if (hotelsBaseInfo[counter] !== undefined) {
       hotelsService.getHotelPhotosById({ id: hotelsBaseInfo[counter].destinationId })
         .then(({ data }) => {
-          const newHotel = {
-            ...hotel,
-            pictUrl: data.data.hotelImages[0].baseUrl.replace('{size}', data.data.hotelImages[0].sizes[0].suffix)
-          };
+          let newHotel
+          if (data.data.hotelImages[0] !== undefined) {
+            newHotel = {
+              ...hotel,
+              pictUrl: data.data.hotelImages[0].baseUrl.replace('{size}', data.data.hotelImages[0].sizes[0].suffix)
+            };
+          }
           if (hotelsBaseInfo[counter] !== undefined) {
             if (counter < hotelsBaseInfo.length) {
               setHotelsList([...hotelsList, newHotel]);
@@ -67,63 +95,52 @@ function ApartmentsExp(props) {
         })
     }
   }, [hotel])
-  if (counter == 0) {
+  if (isSearchSuccesful) {
+    if (counter == 0) {
+      return (
+        <div className='cards'>
+          <div className='cards-container'>
+            <div className='cards-wrapper'>
+              <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+          </div>
+        </div>)
+    }
+    else {
+
+      if (props != undefined) {
+        return (
+          <div className='cards'>
+            <div className='cards-container'>
+              <div className='cards-wrapper'>
+                {hotelsList.map((item, key) => {
+                  return (<ul className='cards-items' key={key}>
+                    <CardHorizontal class='fixed-size'
+                      src={item.pictUrl}
+                      title={item.name}
+                      city={item.address}
+                      description={item.overview}
+                      starRating={item.starRating}
+                      rating={item.guestRating}
+                      path=''
+                    />
+                  </ul>)
+                })}
+              </div>
+            </div>
+          </div>
+        )
+      }
+    }
+  } else {
     return (
       <div className='cards'>
         <div className='cards-container'>
           <div className='cards-wrapper'>
-            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+           <h1>Sorry, there's no available suits :(</h1>
           </div>
         </div>
       </div>)
-  }
-  else {
-    console.log(props.valueFromParent)
-    if (props != undefined) {
-      return (
-        <div className='cards'>
-          <div className='cards-container'>
-            <div className='cards-wrapper'>
-              {hotelsList.map((item, key) => {
-                return (<ul className='cards-items' key={key}>
-                  <CardHorizontal class='fixed-size'
-                    src={item.pictUrl}
-                    title={item.name}
-                    city={item.address}
-                    description={item.overview}
-                    starRating={item.starRating}
-                    rating={item.guestRating}
-                    path=''
-                  />
-                </ul>)
-              })}
-            </div>
-          </div>
-        </div>
-      )
-    } else {
-      return (
-        <div className='cards'>
-          <div className='cards-container'>
-            <div className='cards-wrapper'>
-              {hotelsList.map((item, key) => {
-                return (<ul className='cards-items' key={key}>
-                  <CardHorizontal class='fixed-size'
-                    src={item.pictUrl}
-                    title={item.name}
-                    city={item.address}
-                    description={item.overview}
-                    starRating={item.starRating}
-                    rating={item.guestRating}
-                    path=''
-                  />
-                </ul>)
-              })}
-            </div>
-          </div>
-        </div>
-      )
-    }
   }
 }
 
