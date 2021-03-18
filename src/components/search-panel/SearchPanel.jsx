@@ -47,12 +47,10 @@ function Search(props) {
 };
 
 function getStart(st) {
-    console.log(st.getDate())
     start = st;
 }
 
 function getEnd(en) {
-    console.log(typeof en)
     end = en;
 }
 
@@ -216,13 +214,11 @@ function SearchPanel(props) {
 
 
     const childFunction = (e) => {
-        e.preventDefault();
-        console.log(props)
+        e.preventDefault()
         if (start !== undefined && end !== undefined) {
             start = convertDate(start)
             end = convertDate(end)
         }
-        console.log(child)
         props.functionCallFromParent({ name, start, end, child, adult, suit });
     }
     return (

@@ -31,9 +31,7 @@ function ApartmentsExp(props) {
       setCatchProps(props)
     }
   }, [props])
-  console.log(catchProps)
   useEffect(() => {
-    console.log(catchProps.name)
     hotelsService.searchHotelByLocation({ query: catchProps.name })
       .then(({ data }) => {
         setHotelsBaseInfo(data.data.suggestions[1].entities);
@@ -107,8 +105,6 @@ function ApartmentsExp(props) {
   if (isSearchSuccesful) {
     if(counter>=0){
       if (counter < 5 && counter < hotelsBaseInfo.length) {
-        console.log(hotelsList)
-        console.log(counter)
         return (
           <div className='cards'>
             <div className='cards-container'>

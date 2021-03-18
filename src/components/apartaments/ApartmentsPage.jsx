@@ -8,7 +8,7 @@ import SearchPanel from '../search-panel/SearchPanel';
 import '../../App.css';
 import '../search-panel/SearchPanel.css'
 import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 
 function Apartments() {
