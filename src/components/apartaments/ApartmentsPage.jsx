@@ -7,16 +7,40 @@ import SearchPanel from '../search-panel/SearchPanel';
 
 import '../../App.css';
 import '../search-panel/SearchPanel.css'
+import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
+
 
 function Apartments() {
-  return (
-    <>
-      <Carousel title="Apartments" />
-      <ApartmentsExp />
-      <SearchPanel />
-      <Footer />
-    </>
-  );
+
+  const [dataFromPanel, setdataFromPanel] = useState()
+
+  const parentFunction = (data_from_child) => {
+    setdataFromPanel({ data_from_child });
+  }
+
+  const name = useLocation()
+
+  if (name.state !== undefined) {
+    return (
+      <>
+        <Carousel title="Apartments" />
+        <SearchPanel name={name.state.name} functionCallFromParent={parentFunction.bind(this)} />
+        <ApartmentsExp name={name.state.name} valueFromParent={dataFromPanel} />
+        <Footer />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Carousel title="Apartments" />
+        <SearchPanel functionCallFromParent={parentFunction.bind(this)} />
+        <ApartmentsExp  valueFromParent={dataFromPanel}/>
+        <Footer />
+      </>
+    );
+  }
+
 }
 
 export default Apartments;

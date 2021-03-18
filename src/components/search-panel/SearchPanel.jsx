@@ -4,7 +4,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
 
-
 const Styles = styled.div`
  .react-datepicker-wrapper,
  .react-datepicker__input-container,
@@ -28,14 +27,32 @@ const Styles = styled.div`
 }
 `;
 
+let name;
+let start;
+let end;
+let child;
+let adult;
+let suit;
+function getValueFromSearch(city) {
+    name = city
+}
 
 function Search(props) {
     return (<div>
         <input placeholder={props.placeholder}
-            className='searchPanel' />
+            className='searchPanel'
+            onChange={city => getValueFromSearch(city.target.value)} />
     </div>
     );
 };
+
+function getStart(st) {
+    start = st;
+}
+
+function getEnd(en) {
+    end = en;
+}
 
 function TableDatePicker() {
     const [startDate, setStartDate] = useState(null);
@@ -49,7 +66,10 @@ function TableDatePicker() {
                 selectsStart
                 startDate={startDate}
                 endDate={endDate}
-                onChange={date => setStartDate(date)}
+                onChange={date => {
+                    setStartDate(date);
+                    getStart(date);
+                }}
             />
             <DatePicker
                 placeholderText="Check out"
@@ -58,7 +78,10 @@ function TableDatePicker() {
                 startDate={startDate}
                 endDate={endDate}
                 minDate={startDate}
-                onChange={date => setEndDate(date)}
+                onChange={date => {
+                    setEndDate(date);
+                    getEnd(date);
+                }}
             />
 
         </div>
@@ -76,17 +99,32 @@ class PeoplePicker extends Component {
         };
     }
 
+    getChild = (param) => {
+        child = param
+    }
+
+    getAdult = (param) => {
+        adult = param
+    }
+
+    getSuit = (param) => {
+        suit = param
+    }
+
     IncrementItem(e, el) {
         e.preventDefault();
         switch (el) {
             case 'adult':
                 this.setState({ adultsAmount: this.state.adultsAmount + 1 });
+                this.getAdult(this.state.adultsAmount + 1)
                 break;
             case 'child':
                 this.setState({ childrenAmount: this.state.childrenAmount + 1 });
+                this.getChild(this.state.childrenAmount + 1)
                 break;
             case 'suit':
                 this.setState({ suitsAmount: this.state.suitsAmount + 1 });
+                this.getSuit(this.state.suitsAmount + 1)
                 break;
             default:
                 alert("There is no such values");
@@ -100,18 +138,21 @@ class PeoplePicker extends Component {
                     return;
                 }
                 this.setState({ adultsAmount: this.state.adultsAmount - 1 });
+                this.getAdult(this.state.adultsAmount - 1)
                 break;
             case 'child':
                 if (this.state.childrenAmount === 0) {
                     return;
                 }
                 this.setState({ childrenAmount: this.state.childrenAmount - 1 });
+                this.getChild(this.state.childrenAmount - 1)
                 break;
             case 'suit':
-                if(this.state.suitsAmount === 0){
+                if (this.state.suitsAmount === 0) {
                     return;
                 }
                 this.setState({ suitsAmount: this.state.suitsAmount - 1 });
+                this.getSuit(this.state.suitsAmount - 1)
                 break;
             default:
                 alert("There is no such values");
@@ -121,48 +162,78 @@ class PeoplePicker extends Component {
 
     render() {
         return (
-                
-                <div className='peoplePicker' >
-                    <ul className='upper'>
-                        <h1>Children</h1>
-                        <h1>Adults</h1>
-                        <h1>Suits</h1>
-                    </ul>
-                    <ul className='upper'>
-                        <div className='stepper'>
-                            <button className='button' onClick={(e) => this.DecreaseItem(e, 'child')}>-</button>
-                            <h1>{this.state.childrenAmount}</h1>
-                            <button className='button' onClick={(e) => this.IncrementItem(e, 'child')}>+</button>
-                        </div>
-                        <div className='stepper'>
-                            <button className='button' onClick={(e) => this.DecreaseItem(e, 'adult')}>-</button>
-                            <h1>{this.state.adultsAmount}</h1>
-                            <button className='button' onClick={(e) => this.IncrementItem(e, 'adult')}>+</button>
-                        </div>
-                        <div className='stepper'>
-                            <button className='button' onClick={(e) => this.DecreaseItem(e, 'suit')}>-</button>
-                            <h1>{this.state.suitsAmount}</h1>
-                            <button className='button' onClick={(e) => this.IncrementItem(e, 'suit')}>+</button>
-                        </div>
-                    </ul>
-                </div>
+
+            <div className='peoplePicker' >
+                <ul className='upper'>
+                    <h1>Children</h1>
+                    <h1>Adults</h1>
+                    <h1>Suits</h1>
+                </ul>
+                <ul className='upper'>
+                    <div className='stepper'>
+                        <button className='button' onClick={(e) => this.DecreaseItem(e, 'child')}>-</button>
+                        <h1>{this.state.childrenAmount}</h1>
+                        <button className='button' onClick={(e) => this.IncrementItem(e, 'child')}>+</button>
+                    </div>
+                    <div className='stepper'>
+                        <button className='button' onClick={(e) => this.DecreaseItem(e, 'adult')}>-</button>
+                        <h1>{this.state.adultsAmount}</h1>
+                        <button className='button' onClick={(e) => this.IncrementItem(e, 'adult')}>+</button>
+                    </div>
+                    <div className='stepper'>
+                        <button className='button' onClick={(e) => this.DecreaseItem(e, 'suit')}>-</button>
+                        <h1>{this.state.suitsAmount}</h1>
+                        <button className='button' onClick={(e) => this.IncrementItem(e, 'suit')}>+</button>
+                    </div>
+                </ul>
+            </div>
         );
     }
 }
 
+function convertDate(start) {
+    if(RegExp(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/).test(start)){
+      return start
+    } else {
+        if (start !== undefined) {
+            let stDay = start.getDate()
+            let stMon = start.getMonth() + 1
+            if (start.getMonth() + 1 < 10) {
+                stMon = '0' + parseInt(start.getMonth() + 1)
+    
+            }
+            if (start.getDate() < 10) {
+                stDay = '0' + start.getDate();
+            }
+            return (start.getFullYear() + "-" + stMon + "-" + stDay);
+        }
+    }
+}
+
 function SearchPanel(props) {
+
+
+    const childFunction = (e) => {
+        e.preventDefault()
+        if (start !== undefined && end !== undefined) {
+            start = convertDate(start)
+            end = convertDate(end)
+        }
+        props.functionCallFromParent({ name, start, end, child, adult, suit });
+    }
     return (
         <div className='searchPanelform'>
-                <Search placeholder='Where are you going?' />
-                <Styles>
-                    <TableDatePicker />
-                </Styles>
-                <PeoplePicker />
-                <div className='buttondiv'>
-                <button className='searchButton'>Search</button>
-                </div>
+            <Search placeholder='Where are you going?' />
+            <Styles>
+                <TableDatePicker />
+            </Styles>
+            <PeoplePicker />
+            <div className='buttondiv'>
+                <button className='searchButton' onClick={childFunction.bind(this)}>Search</button>
+            </div>
         </div>
     );
+
 }
 
 export default SearchPanel;
