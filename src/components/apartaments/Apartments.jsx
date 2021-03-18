@@ -23,6 +23,8 @@ function ApartmentsExp(props) {
   const [hotelsBaseInfo, setHotelsBaseInfo] = useState([]);
   const [counter, setCounter] = useState(-1);
   useEffect(() => {
+    setHotelsList([])
+    setCounter(-1)
     if (props.valueFromParent !== undefined) {
       setCatchProps(props.valueFromParent.data_from_child)
     } else {
@@ -83,9 +85,16 @@ function ApartmentsExp(props) {
             };
           }
           if (hotelsBaseInfo[counter] !== undefined) {
-            if (counter < hotelsBaseInfo.length) {
-              setHotelsList([...hotelsList, newHotel]);
-              setCounter(counter + 1);
+            if (hotelsBaseInfo.length < 5) {
+              if (counter < hotelsBaseInfo.length) {
+                setHotelsList([...hotelsList, newHotel]);
+                setCounter(counter + 1);
+              }
+            } else {
+              if (counter < 5) {
+                setHotelsList([...hotelsList, newHotel]);
+                setCounter(counter + 1);
+              }
             }
           }
         })
@@ -96,48 +105,54 @@ function ApartmentsExp(props) {
     }
   }, [hotel])
   if (isSearchSuccesful) {
-    if (counter == 0) {
-      return (
-        <div className='cards'>
-          <div className='cards-container'>
-            <div className='cards-wrapper'>
-              <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-            </div>
-          </div>
-        </div>)
-    }
-    else {
-
-      if (props != undefined) {
+    if(counter>=0){
+      if (counter < 5 && counter < hotelsBaseInfo.length) {
+        console.log(hotelsList)
+        console.log(counter)
         return (
           <div className='cards'>
             <div className='cards-container'>
               <div className='cards-wrapper'>
-                {hotelsList.map((item, key) => {
-                  return (<ul className='cards-items' key={key}>
-                    <CardHorizontal class='fixed-size'
-                      src={item.pictUrl}
-                      title={item.name}
-                      city={item.address}
-                      description={item.overview}
-                      starRating={item.starRating}
-                      rating={item.guestRating}
-                      path=''
-                    />
-                  </ul>)
-                })}
+                <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
               </div>
             </div>
-          </div>
-        )
+          </div>)
       }
+      else {
+  
+        if (props != undefined) {
+          return (
+            <div className='cards'>
+              <div className='cards-container'>
+                <div className='cards-wrapper'>
+                  {hotelsList.map((item, key) => {
+                    return (<ul className='cards-items' key={key}>
+                      <CardHorizontal class='fixed-size'
+                        src={item.pictUrl}
+                        title={item.name}
+                        city={item.address}
+                        description={item.overview}
+                        starRating={item.starRating}
+                        rating={item.guestRating}
+                        path=''
+                      />
+                    </ul>)
+                  })}
+                </div>
+              </div>
+            </div>
+          )
+        }
+      }
+    } else{
+      return(<></>)
     }
   } else {
     return (
       <div className='cards'>
         <div className='cards-container'>
           <div className='cards-wrapper'>
-           <h1>Sorry, there's no available suits :(</h1>
+            <h1>Sorry, there's no available suits :(</h1>
           </div>
         </div>
       </div>)

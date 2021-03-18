@@ -3,7 +3,7 @@ import axios from 'axios';
 const serviceAxios = axios.create({
     baseURL: 'https://hotels4.p.rapidapi.com',
     headers: {
-        'x-rapidapi-key': '7dd6ad6de8msh730ea6dd59678adp1d3d89jsn3a114edf1579',
+        'x-rapidapi-key': "a1b68bbba1msh54037660825604ap1d83c7jsn239fb708e5e9",
         'x-rapidapi-host': 'hotels4.p.rapidapi.com',
         useQueryString: true,
     },
