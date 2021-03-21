@@ -7,10 +7,13 @@ import Apartments from './components/apartaments/ApartmentsPage';
 import WhyUs from './components/whyUs/WhyUsPage';
 import SignUp from './components/signUp/SignUpPage';
 import SignIn from './components/signIn/SignInPage';
+import Profile from './components/profile/ProfilePage';
+import NavbarLogIn from './components/navabar/NavbarLogIn';
 
 import './App.css';
 
 function App() {
+  // <NavbarLogIn />
   return (
     <>
       <Router>
@@ -21,6 +24,7 @@ function App() {
           <Route path="/why-us" component={WhyUs} />
           <Route path="/sign-up" component={SignUp} />
           <Route path="/sign-in" component={SignIn} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </>
