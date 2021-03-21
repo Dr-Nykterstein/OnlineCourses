@@ -1,0 +1,50 @@
+/* .user-info{
+    margin-left: 100dp;
+} */
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  text-align: left;
+  margin: 24px 24px 24px 24px;
+  padding: 24px;
+}
+
+/* .profile-page__lable-text {
+  /* margin-left: 100dp; */
+  /* text-align: left; 
+} */
+
+p {
+    margin-top: 8px;
+  font-size: 22px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  
+}
+.profile-page__value-text {
+    margin-left: 20px; 
+    font-size: 21px;
+    border-bottom: 1px solid black;
+    /* text-align: left; */
+}
+
+.user-info {
+  display: flex;
+  flex: 1;
+  margin-left: 200dp;
+  border-radius: 10px;
+}
+
+.user-info.fixed-size {
+  width: 1000px;
+  height: 310px;
+}
+
+.profile-page__form-text {
+    margin-top: 18px;
+}
+/* .profile-page{
+
+} */

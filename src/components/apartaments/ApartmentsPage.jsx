@@ -10,7 +10,6 @@ import '../search-panel/SearchPanel.css'
 import { useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
-
 function Apartments() {
 
   const [dataFromPanel, setdataFromPanel] = useState()

@@ -9,9 +9,9 @@ function WhyUsExp() {
   const items = [
     {
       id: 1,
-      header: <h2>Date change or cancellation during the Coronavirus pandemy</h2>,
-      description: 'You chose a policy when you made a booking on our platform. If that policy allows a change of dates or a free cancellation, you are entitled to that. For bookings made before 6 April: You may be able to change or cancel your (non refundable) booking for free if you cannot travel to or stay at the property as a result of implications of the Coronavirus (COVID-19) outbreak, such as government travel restrictions (e.g. closed borders).',
-      image: "https://framinghamsource.com/wp-content/uploads/2020/05/coronavirus.courtesy.orange.jpeg"
+      header: <h2>What's the difference between a Double room and a Twin room?</h2>,
+      description: 'A Double Room has one double bed and a Twin Room has 2 single beds. If a room is called Double/Twin, it can be set up for either type. The property will do its best to accommodate your needs.',
+      image: "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/172/2019/03/01044402/P_625_1-edit-1.jpg"
     },
     {
       id: 2,
@@ -21,9 +21,9 @@ function WhyUsExp() {
     },
     {
       id: 3,
-      header: <h2>What's the difference between a Double room and a Twin room?</h2>,
-      description: 'A Double Room has one double bed and a Twin Room has 2 single beds. If a room is called Double/Twin, it can be set up for either type. The property will do its best to accommodate your needs.',
-      image: "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/172/2019/03/01044402/P_625_1-edit-1.jpg"
+      header: <h2>Date change or cancellation during the Coronavirus pandemy</h2>,
+      description: 'You chose a policy when you made a booking on our platform. If that policy allows a change of dates or a free cancellation, you are entitled to that. For bookings made before 6 April: You may be able to change or cancel your (non refundable) booking for free if you cannot travel to or stay at the property as a result of implications of the Coronavirus (COVID-19) outbreak, such as government travel restrictions (e.g. closed borders).',
+      image: "https://framinghamsource.com/wp-content/uploads/2020/05/coronavirus.courtesy.orange.jpeg"
     },
     {
       id: 4,
@@ -49,6 +49,41 @@ function WhyUsExp() {
         imageHeight='470px'
         imageWidth='470px'
       />
+      <img className="whyus-img" src="https://thumbs.dreamstime.com/b/benefits-text-black-yellow-vintage-lines-stamp-grungy-sign-207108385.jpg" />
+      <div className="text">
+        <p>
+          EasyLogging is the most visited service of daily rental offers from owners in Ukraine.
+          We started on July 1, 2009 as the “Cherdak” company, and we have earned a reputation as a
+          leader, becoming the most visited site in the field of daily rental housing from owners in
+          Ukraine.
+        </p>
+        <p>Our achivments:</p>
+        <p className='list'><li>11 years on the market</li></p>
+        <p className='list'><li>~ 40 thousand housing offers from owners</li></p>
+        <p className='list'><li>offers from all over the world</li></p>
+        <p className='list'><li>lots of positive reviews</li></p>
+      </div>
+      <img className="whyus-img" src="https://groupbuyseotools.org/wp-content/uploads/2019/07/reviews.jpg" />
+      <div className="text">
+        <p>
+          We do not delete any guest reviews and do not write tens of thousands of our own, 
+          therefore all information is as true as possible and reflects the real situation. We have 
+          developed reliable anti-fraud algorithms. In addition, each offer additionally undergoes 
+          manual moderation, minimizing your risks.
+        </p>
+        <p>
+          Our life is diverse and sometimes even unpredictable. We always look to make it simpler and 
+          more comfortable. To plan a business trip, rest, enchantingly celebrate a birthday or to 
+          conduct exclusive photo and video shooting – all this is possible in a daily apartment and 
+          we already have more than 40,000 of them.
+        </p>
+        <p>
+          Basically, the issue of daily rent of apartments is relevant for city guests who are looking 
+          for home comfort and coziness. In rental housing you can feel at home, do anything and not 
+          depend on conditions.
+        </p>
+        <p>An apartment for rent is also a great way to save money. After all, the per day cost of...</p>
+      </div>
     </div>
   );
 }
