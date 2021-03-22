@@ -37,7 +37,10 @@ const useRoutes = (isAuthenticated) => {
       <Route path={ROUTES.LOGIN}>
         <SignInPage />
       </Route>
-      <Redirect to={ROUTES.LOGIN} />
+      <Route path={ROUTES.HOME}>
+        <HomePage />
+      </Route>
+      <Redirect to={ROUTES.HOME} />
     </Switch>
   );
 };

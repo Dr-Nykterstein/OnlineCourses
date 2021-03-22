@@ -1,4 +1,6 @@
+/* eslint-disable */
 import { useCallback, useState } from "react";
+import config from "../../config/default.json";
 
 const useHttp = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +16,9 @@ const useHttp = () => {
           // eslint-disable-next-line no-param-reassign
           headers["Content-Type"] = "application/json";
         }
+        const str1 = `${config.get("baseUrl")}`;
+        const baseUrl = str1.concat(`${url}`);
+        console.log("baseUrl", baseUrl);
 
         const response = await fetch(`http://localhost:5000${url}`, {
           method,
