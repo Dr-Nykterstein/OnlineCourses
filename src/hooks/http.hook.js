@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useCallback, useState } from "react";
-import config from "../../config/default.json";
+const config = require("config");
 
 const useHttp = () => {
   const [loading, setLoading] = useState(false);
@@ -17,10 +17,9 @@ const useHttp = () => {
           headers["Content-Type"] = "application/json";
         }
         const str1 = `${config.get("baseUrl")}`;
-        const baseUrl = str1.concat(`${url}`);
-        console.log("baseUrl", baseUrl);
+        const baseUrl = str1 + `${url}`;
 
-        const response = await fetch(`http://localhost:5000${url}`, {
+        const response = await fetch(baseUrl, {
           method,
           body,
           headers,
