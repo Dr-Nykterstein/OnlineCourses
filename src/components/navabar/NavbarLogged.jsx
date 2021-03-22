@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
+import AuthContext from "../../context/AuthContext";
 import Button from "../button/Button";
 
 import "./Navbar.css";
 import ROUTES from "../../routes";
 
-function Navbar() {
+function NavbarLogged() {
+  const history = useHistory();
+  const auth = useContext(AuthContext);
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    auth.logout();
+    history.push("/");
+  };
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -85,20 +94,17 @@ function Navbar() {
           </ul>
           <div className="btns-position">
             {button && (
-              <Link to={ROUTES.REGISTER}>
-                <Button buttonStyle="btn-outline">Sign Up</Button>
+              <Link to={ROUTES.LOGIN}>
+                <Button buttonStyle="btn-outline" onClick={logoutHandler}>
+                  Log out
+                </Button>
               </Link>
             )}
           </div>
-          {button && (
-            <Link to={ROUTES.LOGIN}>
-              <Button buttonStyle="btn-outline">Sign In</Button>
-            </Link>
-          )}
         </div>
       </nav>
     </>
   );
 }
 
-export default Navbar;
+export default NavbarLogged;

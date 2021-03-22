@@ -1,58 +1,58 @@
 .searchPanel {
-    border: 5px solid #ffe600;
-    border-radius: 50px 50px 50px 50px;
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 40px;
-    width: 500px;
-    height: 50px;
-    outline: none;
+  border: 5px solid #ffe600;
+  border-radius: 50px 50px 50px 50px;
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 40px;
+  width: 500px;
+  height: 50px;
+  outline: none;
 }
 
 .searchPanelform {
-    display: block;
-    margin: auto;
-    display: inline-flex;
-    flex-direction: row;
-    margin-left: 70px;
-    margin-bottom: 15px;
-    margin-top: 100px;
+  display: block;
+  margin: auto;
+  display: inline-flex;
+  flex-direction: row;
+  margin-left: 70px;
+  margin-bottom: 15px;
+  margin-top: 100px;
 }
 
 @media only screen and (max-width: 426px) {
-    .searchPanel {
-        width: 300px;
-        font-size: 16px;
-        margin: 10px 50px;
-    }
-    .searchPanelform {
-        flex-direction: column;
-        margin-left: 10px;
-        margin-bottom: 20px;
-    }
-    .upper {
-        margin-left: 30px;
-    }
-    .peoplePicker {
-        margin: 30px 20px;
-    }
-    .searchButton {
-        margin: 10px 10px;
-    }
-    .buttondiv {
-        margin: 0px 70px;
-    }
+  .searchPanel {
+    width: 300px;
+    font-size: 16px;
+    margin: 10px 50px;
+  }
+  .searchPanelform {
+    flex-direction: column;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+  .upper {
+    margin-left: 30px;
+  }
+  .peoplePicker {
+    margin: 30px 20px;
+  }
+  .searchButton {
+    margin: 10px 10px;
+  }
+  .buttondiv {
+    margin: 0px 70px;
+  }
 }
 
 .upper {
-    display: inline-flex;
-    flex-direction: column;
+  display: inline-flex;
+  flex-direction: column;
 }
 
 .peoplePicker {
-    margin-top: 15px;
+  margin-top: 15px;
     margin-bottom: 5px;
     margin-left: 30px;
     display: inline-flex;
@@ -60,67 +60,67 @@
 }
 
 .stepper {
-    margin-left: 40px;
-    display: inline-flex;
-    flex-direction: row;
+  margin-left: 40px;
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .button {
-    margin: 5px 5px;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    border-radius: 4px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: #ffe600;
-    transition: all 0.3s ease-out;
+  margin: 5px 5px;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #ffe600;
+  transition: all 0.3s ease-out;
 }
 
 .button:hover {
-    transition: all 0.3s ease-out;
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #242424;
+  transition: 250ms;
 }
 
 .upper h1 {
-    margin: 8px 10px;
-    font-size: 18px;
-    text-align: left;
+  margin: 8px 10px;
+  font-size: 18px;
+  text-align: left;
 }
 
 .separator {
-    margin-top: -25px;
+  margin-top: -25px;
 }
 
 .searchButton {
-    border-radius: 50px 50px 50px 50px;
-    margin-left: 20px;
-    margin-top: 48px;
-    width: 200px;
-    height: 50px;
-    border: 0px;
-    background-color: #ffe600;
-    font-size: 18px;
-    outline: none;
-    cursor: pointer;
-    transition: all .3s ease;
+  border-radius: 50px 50px 50px 50px;
+  margin-left: 20px;
+  margin-top: 48px;
+  width: 200px;
+  height: 50px;
+  border: 0px;
+  background-color: #ffe600;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .searchButton:disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .searchButton:hover {
-    background: #000;
-    color: #fff;
+  background: #000;
+  color: #fff;
 }
 
 .datePickerdiv {
-    display: block;
-    margin: auto;
-    display: inline-flex;
-    flex-direction: column;
+  display: block;
+  margin: auto;
+  display: inline-flex;
+  flex-direction: column;
 }

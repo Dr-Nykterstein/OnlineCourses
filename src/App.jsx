@@ -1,29 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import Navbar from './components/navabar/Navbar';
-import Home from './components/home/HomePage';
-import Apartments from './components/apartaments/ApartmentsPage';
-import WhyUs from './components/whyUs/WhyUsPage';
-import SignUp from './components/signUp/SignUpPage';
-import SignIn from './components/signIn/SignInPage';
-
-import './App.css';
+import Navbar from "./components/navabar/Navbar";
+import useRoutes from "./useRoutes";
+import "./App.css";
+import useAuth from "./hooks/auth.hook";
+import AuthContext from "./context/AuthContext";
+import NavbarLogged from "./components/navabar/NavbarLogged";
 
 function App() {
+  const { token, login, logout, userId } = useAuth();
+  const isAuthenticated = !!token;
+  const routes = useRoutes(isAuthenticated);
   return (
-    <>
+    <AuthContext.Provider
+      value={{
+        token,
+        login,
+        logout,
+        userId,
+        isAuthenticated,
+      }}
+    >
       <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/apartments" component={Apartments} />
-          <Route path="/why-us" component={WhyUs} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="/sign-in" component={SignIn} />
-        </Switch>
+        {isAuthenticated ? <NavbarLogged /> : <Navbar />}
+        {routes}
       </Router>
-    </>
+    </AuthContext.Provider>
   );
 }
 

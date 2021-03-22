@@ -2,6 +2,7 @@
   background-image: url(https://y8m8k3m5.stackpathcdn.com/wp-content/uploads/2020/03/Main-pool-and-beach-at-Atmosphere-Resorts-Spa.jpg);
   display: flex;
   width: 100%;
+  height: calc(100vh - 80px);
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -11,4 +12,40 @@
     font-size: 14px;
     text-align: right;
   }
+
+  &__error {
+    visibility: visible;
+    max-width: 300px;
+    height: 30px;
+    margin: auto;
+    color: crimson;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    top: 100px;
+    font-size: 17px;
+    white-space: nowrap;
+  }
+
+  &__response {
+    visibility: visible;
+    max-width: 300px;
+    height: 30px;
+    margin: auto;
+    color: lawngreen;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    top: 100px;
+    font-size: 17px;
+    white-space: nowrap;
+  }
+
 }
+

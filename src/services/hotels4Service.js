@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const serviceAxios = axios.create({
     baseURL: 'https://hotels4.p.rapidapi.com',

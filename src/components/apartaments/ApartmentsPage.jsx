@@ -1,46 +1,46 @@
-import React from 'react';
+import React, { useState } from "react";
 
-import Carousel from '../carousel/Carousel';
-import ApartmentsExp from './Apartments';
-import Footer from '../footer/Footer';
-import SearchPanel from '../search-panel/SearchPanel';
-
-import '../../App.css';
-import '../search-panel/SearchPanel.css'
-import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
-
+import { useLocation } from "react-router-dom";
+import Carousel from "../carousel/Carousel";
+import ApartmentsExp from "./Apartments";
+import Footer from "../footer/Footer";
+// eslint-disable-next-line import/no-named-as-default
+import SearchPane from "../search-panel/SearchPanel";
+import "../../App.css";
+import "../search-panel/SearchPanel.css";
 
 function Apartments() {
+  const [dataFromPanel, setdataFromPanel] = useState();
 
-  const [dataFromPanel, setdataFromPanel] = useState()
+  const parentFunction = (dataFromChild) => {
+    setdataFromPanel({ dataFromChild });
+  };
 
-  const parentFunction = (data_from_child) => {
-    setdataFromPanel({ data_from_child });
-  }
-
-  const name = useLocation()
+  const name = useLocation();
 
   if (name.state !== undefined) {
     return (
       <>
         <Carousel title="Apartments" />
-        <SearchPanel name={name.state.name} functionCallFromParent={parentFunction.bind(this)} />
+        <SearchPane
+          name={name.state.name}
+          /* eslint-disable-next-line react/jsx-no-bind */
+          functionCallFromParent={parentFunction.bind(this)}
+        />
         <ApartmentsExp name={name.state.name} valueFromParent={dataFromPanel} />
         <Footer />
       </>
     );
-  } else {
-    return (
-      <>
-        <Carousel title="Apartments" />
-        <SearchPanel functionCallFromParent={parentFunction.bind(this)} />
-        <ApartmentsExp  valueFromParent={dataFromPanel}/>
-        <Footer />
-      </>
-    );
   }
-
+  return (
+    <>
+      <Carousel title="Apartments" />
+      {/* eslint-disable-next-line react/jsx-no-bind */}
+      <SearchPane functionCallFromParent={parentFunction.bind(this)} />
+      <ApartmentsExp valueFromParent={dataFromPanel} />
+      <Footer />
+    </>
+  );
 }
 
 export default Apartments;

@@ -24,7 +24,7 @@
     outline: none;
     margin-bottom: 16px;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     background: #ffe600;
 
     &:disabled {
@@ -38,6 +38,5 @@
   }
 
   &__footer {
-
   }
 }
