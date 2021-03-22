@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import { CardView } from 'react-card-with-image';
+import { CardView } from "react-card-with-image";
 
-import 'react-card-with-image/dist/index.css';
-import './WhyUs.css';
+import "react-card-with-image/dist/index.css";
+import "./WhyUs.css";
 
-function WhyUsExp() {
+const WhyUsExp = () => {
   const items = [
     {
       id: 1,
@@ -40,14 +40,14 @@ function WhyUsExp() {
   ]
 
   return (
-    <div className='whyus-container'>
+    <div className="whyus-container">
       <h1>Popular questions</h1>
 
       <CardView
         items={items}
-        activeColor='#000'
-        imageHeight='470px'
-        imageWidth='470px'
+        activeColor="#000"
+        imageHeight="470px"
+        imageWidth="470px"
       />
       <img className="whyus-img" src="https://thumbs.dreamstime.com/b/benefits-text-black-yellow-vintage-lines-stamp-grungy-sign-207108385.jpg" />
       <div className="text">
@@ -66,20 +66,20 @@ function WhyUsExp() {
       <img className="whyus-img" src="https://groupbuyseotools.org/wp-content/uploads/2019/07/reviews.jpg" />
       <div className="text">
         <p>
-          We do not delete any guest reviews and do not write tens of thousands of our own, 
-          therefore all information is as true as possible and reflects the real situation. We have 
-          developed reliable anti-fraud algorithms. In addition, each offer additionally undergoes 
+          We do not delete any guest reviews and do not write tens of thousands of our own,
+          therefore all information is as true as possible and reflects the real situation. We have
+          developed reliable anti-fraud algorithms. In addition, each offer additionally undergoes
           manual moderation, minimizing your risks.
         </p>
         <p>
-          Our life is diverse and sometimes even unpredictable. We always look to make it simpler and 
-          more comfortable. To plan a business trip, rest, enchantingly celebrate a birthday or to 
-          conduct exclusive photo and video shooting – all this is possible in a daily apartment and 
+          Our life is diverse and sometimes even unpredictable. We always look to make it simpler and
+          more comfortable. To plan a business trip, rest, enchantingly celebrate a birthday or to
+          conduct exclusive photo and video shooting – all this is possible in a daily apartment and
           we already have more than 40,000 of them.
         </p>
         <p>
-          Basically, the issue of daily rent of apartments is relevant for city guests who are looking 
-          for home comfort and coziness. In rental housing you can feel at home, do anything and not 
+          Basically, the issue of daily rent of apartments is relevant for city guests who are looking
+          for home comfort and coziness. In rental housing you can feel at home, do anything and not
           depend on conditions.
         </p>
         <p>An apartment for rent is also a great way to save money. After all, the per day cost of...</p>

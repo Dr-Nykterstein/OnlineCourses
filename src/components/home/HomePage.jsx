@@ -1,13 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import Carousel from '../carousel/Carousel';
-import CardsCity from '../cards/CardsCity';
+import Carousel from "../carousel/Carousel";
+import CardsCity from "../cards/CardsCity";
+import Footer from "../footer/Footer";
 import AdBlock from '../cards/AdBlockCards';
-import Footer from '../footer/Footer';
 
-import '../../App.css';
 
-function Home() {
+import "../../App.css";
+
+function HomePage() {
   return (
     <>
       <Carousel title="To travel is to live" />
@@ -18,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

@@ -1,5 +1,14 @@
 class HotelModel {
-  constructor(name,latitude,longitude,location,description,starRating,rating,picture) {
+  constructor(
+    name,
+    latitude,
+    longitude,
+    location,
+    description,
+    starRating,
+    rating,
+    picture
+  ) {
     this.name = name;
     this.latitude = latitude;
     this.longitude = longitude;

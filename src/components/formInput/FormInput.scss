@@ -13,7 +13,9 @@
     border: 1px solid grey;
     padding: 8px;
 
-    &, &:hover, &:focus {
+    &,
+    &:hover,
+    &:focus {
       outline: none;
     }
   }

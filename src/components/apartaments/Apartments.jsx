@@ -1,13 +1,12 @@
-import './Apartments.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import CardHorizontal from '../cards/CardHorizontal';
+import CardHorizontal from "../cards/CardHorizontal";
+import "../cards/Cards.css";
+import "../cards/CardsHorizontal.css";
+import "./LoaderIco.css";
+import "./Apartments.css";
 
-import '../cards/Cards.css';
-import '../cards/CardsHorizontal.css';
-import './LoaderIco.css';
-
-import hotelsService from '../../services/hotelsService';
+import hotelsService from "../../services/hotelsService";
 
 function ApartmentsExp(props) {
   const [catchProps, setCatchProps] = useState({
@@ -65,14 +64,14 @@ function ApartmentsExp(props) {
           }
           if (data.data.data.body.guestReviews.brands !== undefined) {
             if ( data.data.data.body.guestReviews.brands.formattedRating !== undefined ) {
-                newHotel = {...newHotel,   
+                newHotel = {...newHotel,
                 guestRating: data.data.data.body.guestReviews.brands.formattedRating,
               };
             }
             else{
               newHotel = {...newHotel,
                 guestRating: Math.floor(Math.random() * 10) + '.' + Math.floor(Math.random() * 10)
-              };  
+              };
             }
           } else {
             newHotel = {...newHotel,
@@ -99,7 +98,7 @@ function ApartmentsExp(props) {
             newHotel = {
               ...hotel,
               pictUrl: data.data.hotelImages[0].baseUrl.replace(
-                '{size}',
+                "{size}",
                 data.data.hotelImages[0].sizes[0].suffix
               ),
             };
@@ -110,11 +109,9 @@ function ApartmentsExp(props) {
                 setHotelsList([...hotelsList, newHotel]);
                 setCounter(counter + 1);
               }
-            } else {
-              if (counter < 5) {
-                setHotelsList([...hotelsList, newHotel]);
-                setCounter(counter + 1);
-              }
+            } else if (counter < 5) {
+              setHotelsList([...hotelsList, newHotel]);
+              setCounter(counter + 1);
             }
           }
         })
@@ -132,46 +129,43 @@ function ApartmentsExp(props) {
             <div className="cards-container">
               <div className="cards-wrapper">
                 <div className="lds-roller">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
                 </div>
               </div>
             </div>
           </div>
         );
-      } else {
-        if (props != undefined) {
-          return (
-            <div className="cards">
-              <div className="cards-container">
-                <div className="cards-wrapper">
-                  {hotelsList.map((item, key) => {
-                    return (
-                      <ul className="cards-items" key={key}>
-                        <CardHorizontal
-                          class="fixed-size"
-                          src={item.pictUrl}
-                          title={item.name}
-                          city={item.address}
-                          description={item.overview}
-                          starRating={item.starRating}
-                          rating={item.guestRating}
-                          path=""
-                        />
-                      </ul>
-                    );
-                  })}
-                </div>
+      }
+      if (props !== undefined) {
+        return (
+          <div className="cards">
+            <div className="cards-container">
+              <div className="cards-wrapper">
+                {hotelsList.map((item) => (
+                  <ul className="cards-items" key={item.id}>
+                    <CardHorizontal
+                      class="fixed-size"
+                      src={item.pictUrl}
+                      title={item.name}
+                      city={item.address}
+                      description={item.overview}
+                      starRating={item.starRating}
+                      rating={item.guestRating}
+                      path=""
+                    />
+                  </ul>
+                ))}
               </div>
             </div>
-          );
-        }
+          </div>
+        );
       }
     } else {
       return <></>;
@@ -181,7 +175,7 @@ function ApartmentsExp(props) {
       <div className="cards">
         <div className="cards-container">
           <div className="cards-wrapper">
-            <h1>Sorry, there's no available suits :(</h1>
+            <h1>Sorry, there`s no available suits :(</h1>
           </div>
         </div>
       </div>

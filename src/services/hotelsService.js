@@ -1,13 +1,13 @@
-import axios from './hotels4Service';
+import axios from "./hotels4Service";
 
 const hotelsService = {
   searchHotelByLocation(params) {
     return axios
-      .get('/locations/search', {
+      .get("/locations/search", {
         params: { ...params },
       })
       .then((data) => ({
-        data: data,
+        data,
       }))
       .catch((error) => {
         Promise.reject(error);
@@ -15,11 +15,11 @@ const hotelsService = {
   },
   getHotelDetails(params) {
     return axios
-      .get('/properties/get-details', {
+      .get("/properties/get-details", {
         params: { ...params },
       })
       .then((data) => ({
-        data: data,
+        data,
       }))
       .catch((error) => {
         Promise.reject(error);
@@ -27,11 +27,11 @@ const hotelsService = {
   },
   getHotelPhotosById(params) {
     return axios
-      .get('/properties/get-hotel-photos', {
+      .get("/properties/get-hotel-photos", {
         params: { ...params },
       })
       .then((data) => ({
-        data: data,
+        data,
       }))
       .catch((error) => {
         Promise.reject(error);
@@ -39,11 +39,11 @@ const hotelsService = {
   },
   getReviewsListOfHotel(params) {
     return axios
-      .get('/reviews/list', {
+      .get("/reviews/list", {
         params: { ...params },
       })
       .then((data) => ({
-        data: data,
+        data,
       }))
       .catch((error) => {
         Promise.reject(error);
@@ -51,11 +51,11 @@ const hotelsService = {
   },
   getAllMetaData(params) {
     return axios
-      .get('/get-meta-data', {
+      .get("/get-meta-data", {
         params: { ...params },
       })
       .then((data) => ({
-        data: data,
+        data,
       }))
       .catch((error) => {
         Promise.reject(error);
