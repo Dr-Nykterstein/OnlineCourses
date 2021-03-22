@@ -29,7 +29,7 @@ SwiperCore.use([
 ]);
 
 function AdBlock() {
-  return(<></>);
+  return(<></>)
   // // #region ID
   // const reservID = [
   //   '124520',
@@ -49,32 +49,43 @@ function AdBlock() {
   // const [hotel, setHotel] = useState();
   // const [hotelIterator, setHotelIterator] = useState(-1);
   // const [swiper, setSwiper] = useState(new Swiper());
-  // const [update,setApdate] = useState(false);
+  // const [update, setUpdate] = useState(false);
   // useEffect(() => {
   //   setHotelIterator(hotelIterator + 1);
   // }, []);
   // useEffect(() => {
-  //   setIsSearchSuccesful(true);
-  //   hotelsService
-  //     .getHotelDetails({
-  //       id: reservID[hotelIterator],
-  //     })
-  //     .then(({ data }) => {
-  //       let newHotel = {
-  //         name: data.data.data.body.propertyDescription.name,
-  //         address: data.data.data.body.propertyDescription.address.fullAddress,
-  //         guestRating: data.data.data.body.guestReviews.formattedRating,
-  //       };
-  //       if (data.data.data.body.guestReviews.brands !== undefined) {
-  //         if (
-  //           data.data.data.body.guestReviews.brands.formattedRating !==
-  //           undefined
-  //         ) {
-  //           newHotel = {
-  //             ...newHotel,
-  //             guestRating:
-  //               data.data.data.body.guestReviews.brands.formattedRating,
-  //           };
+  //   if (hotelIterator < reservID.length &&  hotelIterator !== -1) {
+  //     setIsSearchSuccesful(true);
+  //     hotelsService
+  //       .getHotelDetails({
+  //         id: reservID[hotelIterator],
+  //       })
+  //       .then(({ data }) => {
+  //         let newHotel = {
+  //           name: data.data.data.body.propertyDescription.name,
+  //           address:
+  //             data.data.data.body.propertyDescription.address.fullAddress,
+  //           guestRating: data.data.data.body.guestReviews.formattedRating,
+  //         };
+  //         if (data.data.data.body.guestReviews.brands !== undefined) {
+  //           if (
+  //             data.data.data.body.guestReviews.brands.formattedRating !==
+  //             undefined
+  //           ) {
+  //             newHotel = {
+  //               ...newHotel,
+  //               guestRating:
+  //                 data.data.data.body.guestReviews.brands.formattedRating,
+  //             };
+  //           } else {
+  //             newHotel = {
+  //               ...newHotel,
+  //               guestRating:
+  //                 Math.floor(Math.random() * 10) +
+  //                 '.' +
+  //                 Math.floor(Math.random() * 10),
+  //             };
+  //           }
   //         } else {
   //           newHotel = {
   //             ...newHotel,
@@ -84,54 +95,51 @@ function AdBlock() {
   //               Math.floor(Math.random() * 10),
   //           };
   //         }
-  //       } else {
-  //         newHotel = {
-  //           ...newHotel,
-  //           guestRating:
-  //             Math.floor(Math.random() * 10) +
-  //             '.' +
-  //             Math.floor(Math.random() * 10),
-  //         };
-  //       }
-  //       setHotel(newHotel);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       setIsSearchSuccesful(false);
-  //       Promise.resolve({});
-  //     });
+  //         setHotel(newHotel);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //         setIsSearchSuccesful(false);
+  //         Promise.resolve({});
+  //       });
+  //   } else {
+  //     if( hotelIterator !== -1){
+  //       setUpdate(true);
+  //     }
+  //   }
   // }, [hotelIterator]);
 
   // useEffect(() => {
-  //   hotelsService
-  //     .getHotelPhotosById({ id: reservID[hotelIterator] })
-  //     .then(({ data }) => {
-  //       let newHotel;
-  //       if (data.data.hotelImages[0] !== undefined) {
-  //         newHotel = {
-  //           ...hotel,
-  //           pictUrl: data.data.hotelImages[0].baseUrl.replace(
-  //             '{size}',
-  //             data.data.hotelImages[0].sizes[0].suffix
-  //           ),
-  //         };
-  //       }
-  //       // console.log(newHotel);
-  //       if (hotelIterator < reservID.length) {
-  //         setHotelsList([...hotelsList, newHotel]);
-  //       }
-  //       setHotelIterator(hotelIterator + 1);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       Promise.resolve({});
-  //     });
+  //   if (hotelIterator !== -1) {
+  //     hotelsService
+  //       .getHotelPhotosById({ id: reservID[hotelIterator] })
+  //       .then(({ data }) => {
+  //         let newHotel;
+  //         if (data.data.hotelImages[0] !== undefined) {
+  //           newHotel = {
+  //             ...hotel,
+  //             pictUrl: data.data.hotelImages[0].baseUrl.replace(
+  //               '{size}',
+  //               data.data.hotelImages[0].sizes[0].suffix
+  //             ),
+  //           };
+  //         }
+  //         // console.log(newHotel);
+  //         if (hotelIterator < reservID.length) {
+  //           setHotelsList([...hotelsList, newHotel]);
+  //           setHotelIterator(hotelIterator + 1);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //         Promise.resolve({});
+  //       });
+  //   }
   // }, [hotel]);
+
   // console.log(hotelIterator);
-  // useState(()=>{
-  //   console.log(hotelIterator);
-  //   if(hotelIterator === reservID.length)
-  //   {
+  // useState(() => {
+  //   if (update) {
   //     setSwiper(
   //       new Swiper('.swiper-container', {
   //         grabCursor: true,
@@ -158,56 +166,44 @@ function AdBlock() {
   //       })
   //     );
   //   }
-  // },[hotelIterator])
-  // if (hotelIterator < reservID.length) {
+  // }, [update]);
+  // if (!update) {
   //   return (
   //     <>
   //       <h1 className="projects-swiper-title">Homes guests love</h1>
-  //             <div></div>
-  //             <div></div>
-  //             <div></div>
-  //             <div></div>
-  //             <div></div>
-  //             <div></div>
-  //             <div></div>
-  //             <div></div>
-  //           </>
-  //           );
-  //           // {hotelsList.map((item, key) => (
-  //           //   <div className="swiper-slide" key={key}>
-  //           //     <CardItem
-  //           //       class="fixed__size"
-  //           //       src={item.pictUrl}
-  //           //       label={item.guestRating}
-  //           //       title={item.name}
-  //           //       place={item.address}
-  //           //       path=""
-  //           //     />
-  //           //   </div>
-  //           // ))}
+  //       <div></div>
+  //       <div></div>
+  //       <div></div>
+  //       <div></div>
+  //       <div></div>
+  //       <div></div>
+  //       <div></div>
+  //       <div></div>
+  //     </>
+  //   );
   // } else {
-  //     return (
-  //       <>
-  //         <h1 className="projects-swiper-title">Homes guests love</h1>
-  //         <div className="swiper-container">
-  //           <div className="swiper-wrapper">
+  //   return (
+  //     <>
+  //       <h1 className="projects-swiper-title">Homes guests love</h1>
+  //       <div className="swiper-container">
+  //         <div className="swiper-wrapper">
   //           <div className="swiper-slide">
-  //               <CardItem
-  //                 class="fixed__size"
-  //                 src="https://cf.bstatic.com/images/hotel/max1024x768/184/184961180.jpg"
-  //                 label="9.5"
-  //                 title="Monastero Santa Rosa Hotel"
-  //                 place="Québec, Canada"
-  //                 path=""
-  //               />
-  //             </div>
+  //             <CardItem
+  //               class="fixed__size"
+  //               src="https://cf.bstatic.com/images/hotel/max1024x768/184/184961180.jpg"
+  //               label="9.5"
+  //               title="Monastero Santa Rosa Hotel"
+  //               place="Québec, Canada"
+  //               path=""
+  //             />
   //           </div>
-  //           <div className="swiper-button-prev" />
-  //           <div className="swiper-button-next" />
   //         </div>
-  //       </>
-  //     );
-  //   }
+  //         <div className="swiper-button-prev" />
+  //         <div className="swiper-button-next" />
+  //       </div>
+  //     </>
+  //   );
+  // }
 }
 
 // class AdBlock extends Component {
