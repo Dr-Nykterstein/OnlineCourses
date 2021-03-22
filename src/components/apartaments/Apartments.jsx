@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 
 import CardHorizontal from "../cards/CardHorizontal";
@@ -59,23 +60,36 @@ function ApartmentsExp(props) {
           newHotel = {
             name: hotelsBaseInfo[counter].name,
             overview: data.data.data.body.overview.overviewSections[0].content.join(),
-            address: data.data.data.body.propertyDescription.address.fullAddress,
-            starRating: data.data.data.body.propertyDescription.starRating
-          }
+            address:
+              data.data.data.body.propertyDescription.address.fullAddress,
+            starRating: data.data.data.body.propertyDescription.starRating,
+          };
           if (data.data.data.body.guestReviews.brands !== undefined) {
-            if ( data.data.data.body.guestReviews.brands.formattedRating !== undefined ) {
-                newHotel = {...newHotel,
-                guestRating: data.data.data.body.guestReviews.brands.formattedRating,
+            if (
+              data.data.data.body.guestReviews.brands.formattedRating !==
+              undefined
+            ) {
+              newHotel = {
+                ...newHotel,
+                guestRating:
+                  data.data.data.body.guestReviews.brands.formattedRating,
               };
-            }
-            else{
-              newHotel = {...newHotel,
-                guestRating: Math.floor(Math.random() * 10) + '.' + Math.floor(Math.random() * 10)
+            } else {
+              newHotel = {
+                ...newHotel,
+                guestRating:
+                  Math.floor(Math.random() * 10) +
+                  "." +
+                  Math.floor(Math.random() * 10),
               };
             }
           } else {
-            newHotel = {...newHotel,
-              guestRating: Math.floor(Math.random() * 10) + '.' + Math.floor(Math.random() * 10)
+            newHotel = {
+              ...newHotel,
+              guestRating:
+                Math.floor(Math.random() * 10) +
+                "." +
+                Math.floor(Math.random() * 10),
             };
           }
           setHotel(newHotel);

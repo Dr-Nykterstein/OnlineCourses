@@ -1,10 +1,10 @@
+/* eslint-disable */
 import React from "react";
 
 import Carousel from "../carousel/Carousel";
 import CardsCity from "../cards/CardsCity";
 import Footer from "../footer/Footer";
-import AdBlock from '../cards/AdBlockCards';
-
+import AdBlock from "../cards/AdBlockCards";
 
 import "../../App.css";
 
