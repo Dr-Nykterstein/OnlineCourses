@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import "./Apartments.css";
-
 import CardHorizontal from "../cards/CardHorizontal";
-
 import "../cards/Cards.css";
 import "../cards/CardsHorizontal.css";
 import "./LoaderIco.css";
+import "./Apartments.css";
 
 import hotelsService from "../../services/hotelsService";
 
@@ -57,14 +55,29 @@ function ApartmentsExp(props) {
           child1: catchProps.child,
         })
         .then(({ data }) => {
-          const newHotel = {
+          let newHotel;
+          newHotel = {
             name: hotelsBaseInfo[counter].name,
             overview: data.data.data.body.overview.overviewSections[0].content.join(),
-            address:
-              data.data.data.body.propertyDescription.address.fullAddress,
-            starRating: data.data.data.body.propertyDescription.starRating,
-            guestRating: data.data.data.body.guestReviews.formattedRating,
-          };
+            address: data.data.data.body.propertyDescription.address.fullAddress,
+            starRating: data.data.data.body.propertyDescription.starRating
+          }
+          if (data.data.data.body.guestReviews.brands !== undefined) {
+            if ( data.data.data.body.guestReviews.brands.formattedRating !== undefined ) {
+                newHotel = {...newHotel,
+                guestRating: data.data.data.body.guestReviews.brands.formattedRating,
+              };
+            }
+            else{
+              newHotel = {...newHotel,
+                guestRating: Math.floor(Math.random() * 10) + '.' + Math.floor(Math.random() * 10)
+              };
+            }
+          } else {
+            newHotel = {...newHotel,
+              guestRating: Math.floor(Math.random() * 10) + '.' + Math.floor(Math.random() * 10)
+            };
+          }
           setHotel(newHotel);
         })
         .catch((error) => {

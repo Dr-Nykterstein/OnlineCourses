@@ -22,11 +22,7 @@ function Apartments() {
     return (
       <>
         <Carousel title="Apartments" />
-        <SearchPane
-          name={name.state.name}
-          /* eslint-disable-next-line react/jsx-no-bind */
-          functionCallFromParent={parentFunction.bind(this)}
-        />
+        <SearchPanel name={name.state.name} functionCallFromParent={parentFunction.bind(this)} />
         <ApartmentsExp name={name.state.name} valueFromParent={dataFromPanel} />
         <Footer />
       </>
@@ -44,3 +40,4 @@ function Apartments() {
 }
 
 export default Apartments;
+
